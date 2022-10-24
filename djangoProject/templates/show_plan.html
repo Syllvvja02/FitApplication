@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block content %}
+    <br>
+    {% for plan in user_plan %}
+    <div class="card plan w-50 shadow-lg p-3 mb-5 rounded">
+    <div class="card-body">
+        <h3 class="card-title">{{ plan.name }}</h3>
+        <ul>
+            <li>{{ plan.diet }}</li>
+            <li>{{ plan.owner }}</li>
+        </ul>
+        <a href="{% url 'plan_details' plan.id %}" class="btn btn-secondary">Details</a>
+        <a href="{% url 'add_workout_to_plan'%}" class="btn btn-secondary">Add workouts</a>
+        <a href="{% url 'add_stretching_to_plan'%}" class="btn btn-secondary">Add stretchings</a>
+        <a href="{% url 'delete_plan' plan.id %}" class="btn btn-dark float-end">Delete</a>
+    </div>
+    </div>
+        {% endfor %}
+
+{% endblock %}

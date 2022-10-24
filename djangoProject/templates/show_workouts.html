@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% block content %}
+    <br>
+    {% for workout in all_workouts %}
+    <div class="card work w-50 shadow-lg p-3 mb-5 rounded">
+    <div class="card-body">
+        <h3 class="card-title">{{ workout.title }}</h3>
+        <ul>
+            <li>{{ workout.description }}</li>
+            <li>{{ workout.get_intensity_display }}</li>
+            <li>{{ workout.warmup }}</li>
+        </ul>
+        <a href="/workout_details/{{ workout.id }}/" class="btn btn-secondary">Show details</a>
+        <a href="{% url 'add_workout_to_plan' %}" class="btn btn-secondary">Add to my plan</a>
+        {% if user.is_superuser %}
+            <a href="{% url 'add_exercises_to_workout' workout.id %}" class="btn btn-secondary">Add exercises</a>
+            <a href="{% url 'delete_workout' workout.id %}" class="btn btn-dark float-end">Delete</a>
+
+        {% endif %}
+
+    </div>
+    </div>
+        {% endfor %}
+{% endblock %}

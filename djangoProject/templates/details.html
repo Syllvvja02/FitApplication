@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% block content %}
+    <br>
+        <div class="card plan w-50 shadow-lg p-3 mb-5 rounded">
+    <div class="card-body">
+        <h3 class="card-title">Exercises</h3>
+        <ul>
+            {% for exercise in exercises %}
+                <li>{{ exercise }}</li>
+        <li>Burned: {{ exercise.burned_calories }} kcal</li>
+                    {% empty %}
+        <li>pusto</li>
+
+    {% endfor %}
+            <p class="card-text">All burned calories: {{ calories }}</p>
+        </ul>
+    {% if workout %}
+        <a href="{% url 'show_all_workouts' %}" class="btn btn-dark float-end">Come back to workouts</a>
+    {% endif %}
+
+        {% if warmup %}
+        <a href="{% url 'show_all_warmups' %}" class="btn btn-dark float-end">Come back to warmups</a>
+    {% endif %}
+
+        {% if stretch %}
+        <a href="{% url 'show_all_stretch' %}" class="btn btn-dark float-end">Come back to stretchings</a>
+    {% endif %}
+
+    </div>
+    </div>
+{% endblock %}

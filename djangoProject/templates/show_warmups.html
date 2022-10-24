@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+    <br>
+    {% for warmup in all_warmups %}
+    <div class="card warm w-50 shadow-lg p-3 mb-5 rounded">
+    <div class="card-body">
+        <h3 class="card-title">{{ warmup.title }}</h3>
+        <ul>
+            <li>{{ warmup.description }}</li>
+        </ul>
+        <a href="/warmup_details/{{ warmup.id }}/" class="btn btn-secondary">Show details</a>
+        {% if user.is_superuser %}
+        <a href="/warmup_add_exercises/{{ warmup.id }}/" class="btn btn-secondary">Add exercises</a>
+        <a href="{% url 'delete_warmup' warmup.id %}" class="btn btn-dark float-end">Delete</a>
+        {% endif %}
+    </div>
+    </div>
+        {% endfor %}
+{% endblock %}

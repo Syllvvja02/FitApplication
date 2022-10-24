@@ -1,0 +1,105 @@
+{% extends 'index.html' %}
+{% block content %}
+    <br>
+        <div class="card plan w-100 shadow-lg p-3 mb-5 rounded">
+    <div class="card-body">
+        <h3 class="card-title">Plan: {{ plan.name }}</h3>
+{#        <a href="{% url 'edit_plan' plan.id %}" class="btn btn-secondary">Edit</a>#}
+    <table class="table caption-top">
+  <thead>
+    <tr>
+{#      <th scope="col">#</th>#}
+      <th scope="col">Monday</th>
+      <th scope="col">Tuesday</th>
+      <th scope="col">Wednesday</th>
+      <th scope="col">Thursday</th>
+      <th scope="col">Friday</th>
+      <th scope="col">Saturday</th>
+      <th scope="col">Sunday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+{#      <th scope="row"></th>#}
+      <td>
+          {% for x in monday %}
+              {% if x.workout %}
+              <li>Workout: {{ x.workout.title }}</li>
+              {% endif %}
+              {% if x.stretching %}
+              <li>{{ x.stretching.title }}</li>
+              {% endif %}
+          {% endfor %}
+      </td>
+          <td>
+          {% for x in tuesday %}
+              {% if x.workout %}
+              <li>Workout: {{ x.workout.title }}</li>
+              {% endif %}
+              {% if x.stretching %}
+              <li>{{ x.stretching.title }}</li>
+              {% endif %}
+          {% endfor %}
+      </td>
+        <td>
+          {% for x in wednesday %}
+              {% if x.workout %}
+              <li>Workout: {{ x.workout.title }}</li>
+              {% endif %}
+              {% if x.stretching %}
+              <li>{{ x.stretching.title }}</li>
+              {% endif %}
+          {% endfor %}
+      </td>
+        <td>
+          {% for x in thursday %}
+              {% if x.workout %}
+              <li>Workout: {{ x.workout.title }}</li>
+              {% endif %}
+              {% if x.stretching %}
+              <li>{{ x.stretching.title }}</li>
+              {% endif %}
+          {% endfor %}
+      </td>
+        <td>
+          {% for x in friday %}
+              {% if x.workout %}
+              <li>Workout: {{ x.workout.title }}</li>
+              {% endif %}
+              {% if x.stretching %}
+              <li>{{ x.stretching.title }}</li>
+              {% endif %}
+          {% endfor %}
+      </td>
+        <td>
+          {% for x in saturday %}
+              {% if x.workout %}
+              <li>Workout: {{ x.workout.title }}</li>
+              {% endif %}
+              {% if x.stretching %}
+              <li>{{ x.stretching.title }}</li>
+              {% endif %}
+          {% endfor %}
+      </td>
+        <td>
+          {% for x in sunday %}
+              {% if x.workout %}
+              <li>Workout: {{ x.workout.title }}</li>
+              {% endif %}
+              {% if x.stretching %}
+              <li>{{ x.stretching.title }}</li>
+              {% endif %}
+          {% endfor %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+        <a href="{% url 'add_workout_to_plan'%}" class="btn btn-secondary">Add workouts</a>
+    <a href="{% url 'add_stretching_to_plan'%}" class="btn btn-secondary">Add stretchings</a>
+        <a href="{% url 'show_user_plan' %}" class="btn btn-dark">Come back to plans</a>
+        <a href="{% url 'delete_plan' plan.id %}" class="btn btn-dark float-end">Delete</a>
+
+    </div>
+    </div>
+{% endblock %}
+

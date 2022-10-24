@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="card w-50 shadow-lg p-3 mb-5 rounded">
+    <div class="card-body">
+
+        <form method="post" class="form">
+            {% csrf_token %}
+            <input type="text" value="{{ p.name }}" name="new_name">
+            {% for diet in diets %}
+                <ul>
+            <li><input type="radio" id="diet" name="diet" value="{{ diet }}"
+             checked>
+            <label for="diet">{{ diet }}</label></li>
+           </ul>
+            {% endfor %}
+            <br>
+                <input type="submit" value="Done!">
+        <p>{{ diets }}</p>
+        <p>{{ i }}</p>
+        </form>
+        {% if success %}
+        <h5 class="card-text">{{ success }}</h5>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to homepage</a>
+            <a href="{% url 'show_user_plan' %}" class="btn btn-secondary">Show all my plans</a>
+        {% endif %}
+    </div>
+    </div>
+{% endblock %}

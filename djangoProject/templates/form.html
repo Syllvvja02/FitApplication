@@ -1,0 +1,90 @@
+{% extends 'index.html' %}
+{% block content %}
+    <br>
+
+    {% if message %}
+    <div class="card w-75 shadow-lg p-3 mb-5 rounded">
+        <div class="card-body">
+            <h3 class="card-title">{{ message }}</h3>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if info %}
+    <div class="card w-75 shadow-lg p-3 mb-5 rounded">
+    <div class="card-body">
+        <h3 class="card-title">{{ info }}</h3>
+
+        <form method="post" class="form">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+                <input type="submit" value="Done!">
+        </form>
+    {% endif %}
+
+
+    {% if plan_added %}
+        <h5 class="card-text">{{ plan_added }}</h5>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to homepage</a>
+            <a href="{% url 'show_user_plan' %}" class="btn btn-secondary">Show all my plans</a>
+    {% endif %}
+
+
+    {% if add_train_to_plan %}
+        <h5 class="card-text">{{ add_train_to_plan }}</h5>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to homepage</a>
+            <a href="{% url 'plan_details' plan.id %}" class="btn btn-secondary">Back to my plan</a>
+    {% endif %}
+
+
+    {% if warmup_created %}
+        <h5 class="card-text">{{ warmup_created }}</h5>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to homepage</a>
+            <a href="{% url 'create_warmup' %}" class="btn btn-secondary">Create more warmup's</a>
+            <a href="{% url 'show_all_warmups' %}" class="btn btn-secondary">Show all warmup's</a>
+    {% endif %}
+
+
+    {% if exercises_added_1 %}
+        <h5 class="card-text">{{ exercises_added_1 }}</h5>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to homepage</a>
+            <a href="{% url 'add_exercises_to_warmup' warmup.id %}" class="btn btn-secondary">Add more exercises</a>
+            <a href="{% url 'show_all_warmups' %}" class="btn btn-secondary">Show all warmup's</a>
+    {% endif %}
+
+
+    {% if workout_created %}
+        <h5 class="card-text">{{ workout_created }}</h5>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to homepage</a>
+            <a href="{% url 'create_workout' %}" class="btn btn-secondary">Create more workout's</a>
+            <a href="{% url 'show_all_workouts' %}" class="btn btn-secondary">Show all workouts's</a>
+    {% endif %}
+
+
+    {% if exercises_added_2 %}
+        <h5 class="card-text">{{ exercises_added_2 }}</h5>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to homepage</a>
+            <a href="{% url 'add_exercises_to_workout' workout.id %}" class="btn btn-secondary">Add more exercises</a>
+            <a href="{% url 'show_all_workouts' %}" class="btn btn-secondary">Show all workout's</a>
+    {% endif %}
+
+
+        {% if stretch_created %}
+        <h5 class="card-text">{{ stretch_created }}</h5>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to homepage</a>
+            <a href="{% url 'create_stretch' %}" class="btn btn-secondary">Create more stretching's</a>
+            <a href="{% url 'show_all_stretch' %}" class="btn btn-secondary">Show all stretching's</a>
+    {% endif %}
+
+
+    {% if exercises_added_3 %}
+        <h5 class="card-text">{{ exercises_added_3 }}</h5>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to homepage</a>
+            <a href="{% url 'add_exercises_to_stretching' stretch.id %}" class="btn btn-secondary">Add more exercises</a>
+            <a href="{% url 'show_all_stretch' %}" class="btn btn-secondary">Show all stretching's</a>
+    {% endif %}
+
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'index.html' %}
+{% block content %}
+    <br>
+    {% if user.is_superuser %}
+        <h1>Hi superuser</h1>
+    {% endif %}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+    <div class="card shadow-lg p-3 mb-5 rounded text-center">
+    <div class="card-body">
+        <h3 class="card-title">Create your own plan</h3>
+        <h6 class="card-text">Start your journey with us and achieve your goals faster! So..</h6>
+        <a href="{% url 'create_your_plan' %}"><button class="btn btn-outline-dark">Create plan!</button></a>
+    </div>
+    </div>
+        </div>
+                <div class="col">
+    <div class="card shadow-lg p-3 mb-5 rounded text-center">
+        <div class="card-body">
+        <h3 class="card-title">Add workout to your plan</h3>
+        <h6 class="card-text">If you already create your plan, you can start to adding workout.</h6>
+        <a href="{% url 'add_workout_to_plan' %}"><button class="btn btn-outline-dark">Add workout!</button></a>
+        </div>
+    </div>
+                </div>
+                <div class="col">
+    <div class="card shadow-lg p-3 mb-5 rounded text-center">
+        <div class="card-body">
+        <h3 class="card-title">Add stretching to your plan</h3>
+        <h6 class="card-text">Stretching is very important and universal type of training. Best in every time - after waking up, after workout or before going to bed.</h6>
+        <a href="{% url 'add_stretching_to_plan' %}"><button class="btn btn-outline-dark">Add some stretch!</button></a>
+        </div>
+    </div>
+                </div>
+                <div class="col">
+    <div class="card shadow-lg p-3 mb-5 rounded text-center">
+        <div class="card-body">
+        <h3 class="card-title">All your plans in one place</h3>
+        <h6 class="card-text">We have all your plans here</h6>
+        <a href="{% url 'show_user_plan' %}"><button class="btn btn-outline-dark">Show me!</button></a>
+        </div>
+    </div>
+                </div>
+                <div class="col">
+        <div class="card shadow-lg p-3 mb-5 rounded text-center">
+        <div class="card-body">
+        <h3 class="card-title">All workouts</h3>
+        <h6 class="card-text">All available workouts only for you</h6>
+        <a href="{% url 'show_all_workouts' %}"><button class="btn btn-outline-dark">Show me!</button></a>
+        </div>
+    </div>
+                </div>
+                <div class="col">
+            <div class="card shadow-lg p-3 mb-5 rounded text-center">
+        <div class="card-body">
+        <h3 class="card-title">All warmups</h3>
+        <h6 class="card-text">All available warmups only for you</h6>
+        <a href="{% url 'show_all_warmups' %}"><button class="btn btn-outline-dark">Show me!</button></a>
+        </div>
+    </div>
+                </div>
+                <div class="col">
+            <div class="card shadow-lg p-3 mb-5 rounded text-center">
+        <div class="card-body">
+        <h3 class="card-title">All stretchinsgs</h3>
+        <h6 class="card-text">All available stretchings only for you</h6>
+        <a href="{% url 'show_all_stretch' %}"><button class="btn btn-outline-dark">Show me!</button></a>
+        </div>
+    </div>
+                </div>
+        {% if user.is_superuser %}
+                    <div class="col">
+            <div class="card shadow-lg p-3 mb-5 rounded text-center">
+        <div class="card-body">
+        <h3 class="card-title">Add new warm up!</h3>
+        <h6 class="card-text">Create new warm up</h6>
+        <a href="{% url 'create_warmup' %}"><button class="btn btn-outline-dark">Let's create!</button></a>
+        </div>
+    </div>
+                </div>
+            <div class="col">
+            <div class="card shadow-lg p-3 mb-5 rounded text-center">
+        <div class="card-body">
+        <h3 class="card-title">Add new workout!</h3>
+        <h6 class="card-text">Create new workout</h6>
+        <a href="{% url 'create_workout' %}"><button class="btn btn-outline-dark">Let's create!</button></a>
+        </div>
+    </div>
+            </div>
+            <div class="col">
+            <div class="card shadow-lg p-3 mb-5 rounded text-center">
+        <div class="card-body">
+        <h3 class="card-title">Add new stretching!</h3>
+        <h6 class="card-text">Create new stretching</h6>
+        <a href="{% url 'create_stretch' %}"><button class="btn btn-outline-dark">Let's create!</button></a>
+        </div>
+    </div>
+                </div>
+                            </div>
+    {% endif %}
+            </div>
+
+    <h1>{{ info }}</h1>
+{% endblock %}
